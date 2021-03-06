@@ -75,6 +75,19 @@
 \documentclass[10pt,letterpaper]{article}
 \usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
 
+% FIGURES
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage[utf8]{inputenc}\DeclareUnicodeCharacter{2212}{-}
+% \usepackage{import}
+% \import{./figures}{test_fig.png}
+\usepackage{layouts}
+\printinunitsof{in}\prntlen{\textwidth}
+\printinunitsof{in}\prntlen{\linewidth}
+\printinunitsof{in}\prntlen{\paperwidth}
+
+
+
 % amsmath and amssymb packages, useful for mathematical formulas and symbols
 \usepackage{amsmath,amssymb}
 
@@ -82,7 +95,7 @@
 \usepackage{changepage}
 
 % Use Unicode characters when possible
-\usepackage[utf8x]{inputenc}
+% \usepackage[utf8x]{inputenc}
 
 % textcomp package and marvosym package for additional characters
 \usepackage{textcomp,marvosym}
@@ -101,7 +114,7 @@
 \DisableLigatures[f]{encoding = *, family = * }
 
 % color can be used to apply background shading to table cells only
-\usepackage[table]{xcolor}
+\usepackage[]{xcolor}
 
 % array package and thick rules for tables
 \usepackage{array}
@@ -266,7 +279,7 @@ Ways to improve:
     - Assumed Ta=Tmrt, but this is a substantial assumption i.e. air in thermal equilibrium with surroundings
     - Will exclude urban heat island effects, which are substantial [cit]
     - To what extent is urban heat island already accounted for in UKCP air temperature data?
-    - Tmrt 
+    - Tmrt can't be applied to UTCI retroactively (e.g. once Exposure has been calculated) since UTCI relies on a 6th order polynomial calculation including every iteration of using Tmrt
 - Humidity and windspeed used in UTCI calculation are daily means so not at same time of day as tasmax
     - However they don't affect the temperature strongly, so source of error is minimal
     - Tmrt is source of bigger error since effect is larger
@@ -402,6 +415,62 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
 \label{table1}
 \end{adjustwidth}
 \end{table}
+
+
+
+
+
+\pagebreak
+
+% \begin{figure}
+%     \begin{center}
+%         \input{./test_fig.pgf}
+%     \end{center}
+%     \caption{PGF}
+%     \label{fig-pgf}
+% \end{figure}
+
+% \begin{figure}
+%     \begin{center}
+%         \input{figures/test_fig.pdf}
+%     \end{center}
+%     \caption{PDF}
+%     \label{fig-pdf}
+% \end{figure}
+
+% \begin{figure}
+%     \begin{center}
+%         \input{./test_fig.pgf}
+%     \end{center}
+%     \caption{PGF}
+%     \label{fig-pgf}
+% \end{figure}
+
+
+\begin{figure}
+\begin{adjustwidth}{-2.25in}{0in}
+    \begin{center}
+        \includegraphics[width=\linewidth]{./test_fig.pdf}
+    \end{center}
+    \caption{PDF}
+    \label{fig-pdf}
+\end{adjustwidth}
+\end{figure}
+
+\begin{figure}
+\begin{adjustwidth}{-2.25in}{0in}
+    \begin{center}
+        \includegraphics[width=\textwidth]{./test_fig.png}
+    \end{center}
+    \caption{PNG}
+    \label{fig-png}
+\end{adjustwidth}
+\end{figure}
+
+
+
+
+
 
 \end{document}
 
