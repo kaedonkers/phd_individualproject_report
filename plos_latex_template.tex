@@ -81,10 +81,10 @@
 \usepackage[utf8]{inputenc}\DeclareUnicodeCharacter{2212}{-}
 % \usepackage{import}
 % \import{./figures}{test_fig.png}
-\usepackage{layouts}
-\printinunitsof{in}\prntlen{\textwidth}
-\printinunitsof{in}\prntlen{\linewidth}
-\printinunitsof{in}\prntlen{\paperwidth}
+% \usepackage{layouts}
+% \printinunitsof{in}\prntlen{\textwidth}
+% \printinunitsof{in}\prntlen{\linewidth}
+% \printinunitsof{in}\prntlen{\paperwidth}
 
 
 
@@ -448,19 +448,41 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
 
 
 \begin{figure}
-\begin{adjustwidth}{-2.25in}{0in}
+% \begin{adjustwidth}{-2.25in}{0in}
     \begin{center}
-        \includegraphics[width=\linewidth]{./test_fig.pdf}
+        \includegraphics[width=\linewidth]{./tas_poisson.pdf}
     \end{center}
     \caption{PDF}
-    \label{fig-pdf}
-\end{adjustwidth}
+    \label{tas-poisson}
+% \end{adjustwidth}
 \end{figure}
+
+\begin{figure}
+% \begin{adjustwidth}{-2.25in}{0in}
+    \begin{center}
+        \includegraphics[width=\linewidth]{./utci_poisson.pdf}
+    \end{center}
+    \caption{PDF}
+    \label{utci-poisson}
+% \end{adjustwidth}
+\end{figure}
+
+\begin{figure}
+% \begin{adjustwidth}{-2.25in}{0in}
+    \begin{center}
+        \includegraphics[width=\linewidth]{./u10_poisson.pdf}
+    \end{center}
+    \caption{PDF}
+    \label{u10-poisson}
+% \end{adjustwidth}
+\end{figure}
+
+\pagebreak
 
 \begin{figure}
 \begin{adjustwidth}{-2.25in}{0in}
     \begin{center}
-        \includegraphics[width=\textwidth]{./test_fig.png}
+        \includegraphics[width=\linewidth]{./test_fig.png}
     \end{center}
     \caption{PNG}
     \label{fig-png}
