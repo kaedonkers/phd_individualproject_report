@@ -2,126 +2,34 @@
 % Version 3.5 March 2018
 %
 % % % % % % % % % % % % % % % % % % % % % %
-%
-% -- IMPORTANT NOTE
-%
-% This template contains comments intended 
-% to minimize problems and delays during our production 
-% process. Please follow the template instructions
-% whenever possible.
-%
-% % % % % % % % % % % % % % % % % % % % % % % 
-%
-% Once your paper is accepted for publication, 
-% PLEASE REMOVE ALL TRACKED CHANGES in this file 
-% and leave only the final text of your manuscript. 
-% PLOS recommends the use of latexdiff to track changes during review, as this will help to maintain a clean tex file.
-% Visit https://www.ctan.org/pkg/latexdiff?lang=en for info or contact us at latex@plos.org.
-%
-%
-% There are no restrictions on package use within the LaTeX files except that 
-% no packages listed in the template may be deleted.
-%
-% Please do not include colors or graphics in the text.
-%
-% The manuscript LaTeX source should be contained within a single file (do not use \input, \externaldocument, or similar commands).
-%
-% % % % % % % % % % % % % % % % % % % % % % %
-%
-% -- FIGURES AND TABLES
-%
-% Please include tables/figure captions directly after the paragraph where they are first cited in the text.
-%
-% DO NOT INCLUDE GRAPHICS IN YOUR MANUSCRIPT
-% - Figures should be uploaded separately from your manuscript file. 
-% - Figures generated using LaTeX should be extracted and removed from the PDF before submission. 
-% - Figures containing multiple panels/subfigures must be combined into one image file before submission.
-% For figure citations, please use "Fig" instead of "Figure".
-% See http://journals.plos.org/plosone/s/figures for PLOS figure guidelines.
-%
-% Tables should be cell-based and may not contain:
-% - spacing/line breaks within cells to alter layout or alignment
-% - do not nest tabular environments (no tabular environments within tabular environments)
-% - no graphics or colored text (cell background color/shading OK)
-% See http://journals.plos.org/plosone/s/tables for table guidelines.
-%
-% For tables that exceed the width of the text column, use the adjustwidth environment as illustrated in the example table in text below.
-%
-% % % % % % % % % % % % % % % % % % % % % % % %
-%
-% -- EQUATIONS, MATH SYMBOLS, SUBSCRIPTS, AND SUPERSCRIPTS
-%
-% IMPORTANT
-% Below are a few tips to help format your equations and other special characters according to our specifications. For more tips to help reduce the possibility of formatting errors during conversion, please see our LaTeX guidelines at http://journals.plos.org/plosone/s/latex
-%
-% For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$^2$ is incorrect; this should be formatted as $x^2$ (or $\mathrm{x}^2$ if the romanized font is desired).
-%
-% Do not include text that is not math in the math environment. For example, CO2 should be written as CO\textsubscript{2} instead of CO$_2$.
-%
-% Please add line breaks to long display equations when possible in order to fit size of the column. 
-%
-% For inline equations, please do not include punctuation (commas, etc) within the math environment unless this is part of the equation.
-%
-% When adding superscript or subscripts outside of brackets/braces, please group using {}.  For example, change "[U(D,E,\gamma)]^2" to "{[U(D,E,\gamma)]}^2". 
-%
-% Do not use \cal for caligraphic font.  Instead, use \mathcal{}
-%
-% % % % % % % % % % % % % % % % % % % % % % % % 
-%
-% Please contact latex@plos.org with any questions.
-%
-% % % % % % % % % % % % % % % % % % % % % % % %
-
 \documentclass[10pt,letterpaper]{article}
 \usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
-
 % FIGURES
 \usepackage{graphicx}
 \usepackage{pgf}
-\usepackage[utf8]{inputenc}\DeclareUnicodeCharacter{2212}{-}
-% \usepackage{import}
-% \import{./figures}{test_fig.png}
-% \usepackage{layouts}
-% \printinunitsof{in}\prntlen{\textwidth}
-% \printinunitsof{in}\prntlen{\linewidth}
-% \printinunitsof{in}\prntlen{\paperwidth}
-
-
-
 % amsmath and amssymb packages, useful for mathematical formulas and symbols
 \usepackage{amsmath,amssymb}
-
 % Use adjustwidth environment to exceed column width (see example table in text)
 \usepackage{changepage}
-
 % Use Unicode characters when possible
-% \usepackage[utf8x]{inputenc}
-
+\usepackage[utf8x]{inputenc}
 % textcomp package and marvosym package for additional characters
 \usepackage{textcomp,marvosym}
-
 % cite package, to clean up citations in the main text. Do not remove.
 \usepackage{cite}
-
 % Use nameref to cite supporting information files (see Supporting Information section for more info)
 \usepackage{nameref,hyperref}
-
 % line numbers
 \usepackage[right]{lineno}
-
 % ligatures disabled
 \usepackage{microtype}
 \DisableLigatures[f]{encoding = *, family = * }
-
 % color can be used to apply background shading to table cells only
 \usepackage[]{xcolor}
-
 % array package and thick rules for tables
 \usepackage{array}
-
 % create "+" rule type for thick vertical lines
 \newcolumntype{+}{!{\vrule width 2pt}}
-
 % create \thickcline for thick horizontal lines of variable length
 \newlength\savedwidth
 \newcommand\thickcline[1]{%
@@ -130,73 +38,51 @@
   \noalign{\vskip\arrayrulewidth}%
   \noalign{\global\arrayrulewidth\savedwidth}%
 }
-
 % \thickhline command for thick horizontal lines that span the table
 \newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
 \hline
 \noalign{\global\arrayrulewidth\savedwidth}}
-
-
-% Remove comment for double spacing
-% \usepackage{setspace} 
-% \doublespacing
-
 % Text layout
 \raggedright
 \setlength{\parindent}{0.5cm}
 \textwidth 5.25in 
 \textheight 8.75in
-
 % Bold the 'Figure #' in the caption and separate it from the title/caption with a period
 % Captions will be left justified
 \usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
 \renewcommand{\figurename}{Fig}
-
-% Use the PLoS provided BiBTeX style
-\bibliographystyle{plos2015}
-
 % Remove brackets from numbering in List of References
 \makeatletter
 \renewcommand{\@biblabel}[1]{\quad#1.}
 \makeatother
-
-
-
 % Header and Footer with logo
 \usepackage{lastpage,fancyhdr,graphicx}
 \usepackage{epstopdf}
-%\pagestyle{myheadings}
 \pagestyle{fancy}
 \fancyhf{}
-%\setlength{\headheight}{27.023pt}
-%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
 \rfoot{\thepage/\pageref{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
 \fancyheadoffset[L]{2.25in}
 \fancyfootoffset[L]{2.25in}
 \lfoot{\today}
-
 %% Include all macros below
-
 \newcommand{\lorem}{{\bf LOREM}}
 \newcommand{\ipsum}{{\bf IPSUM}}
-
 %% END MACROS SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
 \vspace*{0.2in}
 
-% Title must be 250 characters or less.
+% TITLE
 \begin{flushleft}
 {\Large
 \textbf\newline{
 Analysis of heatwaves in UKCP18 climate projections
-} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
-}
+}}
 \newline
-% Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
 \\
 Kevin Donkers\textsuperscript{1,2*}
 \\
@@ -206,21 +92,16 @@ Kevin Donkers\textsuperscript{1,2*}
 \textbf{2} Informatics Lab, Met Office, Exeter, Devon, UK
 \\
 \bigskip
-
-% Use the asterisk to denote corresponding authorship and provide email address in note below.
 * kevin.donkers@informaticslab.co.uk
-
 \end{flushleft}
-% Please keep the abstract below 300 words
+
+
+% ABSTRACT (below 300 words)
 \section*{Abstract}
 CLIMAR! Mention Climar framework!
 As global average temperatures continue to increase under climate change, extreme events will become commonplace and previously impossible events the new extremes. The impacts of high temperatures  are far reaching and the increased likelihood of extreme heatwaves is already being felt, for instance with the 2003(??) European heatwave which caused **** excess deaths [cit]. In the UK the Met Office define a heatwave as three or more consecutive days of daily maximum temperatures exceeding a given threshold temperature, as defined by the local climatology[cit]. We use this to analyse the number and duration of heatwaves projected to occur in London under the UKCP18 climate projections. In addition we conduct this heatwave analysis using a Universal Thermal Climate Index (UTCI) adjustment to the maximum daily air temperature, which factors in humidity and windspeed to provide a more physiologically accurate representation of high temperatures. This could be used to overcome some of the assumptions posed in the Met Office heatwave definition in order to define a more universal heatwave definition.
 
-
-
-\linenumbers
-
-
+% INTRODUCTION
 \section*{Introduction}
 
 Background:
@@ -229,7 +110,7 @@ Background:
 - European heatwave 2003(?)
 - UK heatwaves 2020
 - Excess deaths, infrastructure impacts, etc.
-- Met Office heatwave definition [2019 cit]
+- Met Office heatwave definition [\cite{McCarthy2019}]
     - Important to challenge assumptions since dominant weather patterns may change in future 
 - UTCI background
 
@@ -299,43 +180,20 @@ Future exploration:
 
 
 
-\nolinenumbers
 
-% Either type in your references using
-% \begin{thebibliography}{}
-% \bibitem{}
-% Text
-% \end{thebibliography}
-%
-% or
-%
-% Compile your BiBTeX database using our plos2015.bst
-% style file and paste the contents of your .bbl file
-% here. See http://journals.plos.org/plosone/s/latex for 
-% step-by-step instructions.
-% 
+
+
+
+
+
+
 \pagebreak
-\begin{thebibliography}{10}
 
-\bibitem{bib1}
-Conant GC, Wolfe KH.
-\newblock {{T}urning a hobby into a job: how duplicated genes find new
-  functions}.
-\newblock Nat Rev Genet. 2008 Dec;9(12):938--950.
+\bibliographystyle{plos2015}
+\bibliography{CLIMAR-2021_Mar_report.bib}
 
-\bibitem{bib2}
-Ohno S.
-\newblock Evolution by gene duplication.
-\newblock London: George Alien \& Unwin Ltd. Berlin, Heidelberg and New York:
-  Springer-Verlag.; 1970.
 
-\bibitem{bib3}
-Magwire MM, Bayer F, Webster CL, Cao C, Jiggins FM.
-\newblock {{S}uccessive increases in the resistance of {D}rosophila to viral
-  infection through a transposon insertion followed by a {D}uplication}.
-\newblock PLoS Genet. 2011 Oct;7(10):e1002337.
 
-\end{thebibliography}
 
 
 
@@ -369,7 +227,7 @@ Fig~\ref{fig1}
 Table~\ref{table1} 
 
 
-Citation~\cite{bib3}
+Citation~\cite{LaGennusa2005}
 
 
 
@@ -424,11 +282,15 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
 
 
 \begin{figure}
-\begin{adjustwidth}{-1.8in}{0in}
+\begin{adjustwidth}{-2.25in}{0in}
     \begin{center}
-        \includegraphics[width=\linewidth]{./boxplots.pdf}
+        \includegraphics[width=0.9\linewidth]{./boxplots.pdf}
     \end{center}
-    \caption{PDF}
+    \caption{
+    {\bf Annual number of hot and heatwave days increases over the decades modelled.}
+    An accelerated increase is observed in the later decades of the 21\textsuperscript{st} century.
+    Here hot days are defined as the total number of days in the year that exceed a threshold, whereas heatwave days are the total number of days in the year that are part of a continuous 3+ day heatwave. This analysis was done with raw and UTCI adjusted maximum daily air temperatures using thresholds defined by the Met Office and UTCI heat stress theory. Air temperature values for Greater London area used.
+    }
     \label{boxplots}
 \end{adjustwidth}
 \end{figure}
@@ -438,7 +300,13 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
     \begin{center}
         \includegraphics[width=\linewidth]{./tas_poisson.pdf}
     \end{center}
-    \caption{PDF}
+    \caption{
+    {\bf Met Office heatwave definition predicts heatwaves up to 73 days long in the 2070s.}
+    Comparison of all heatwave events across all years and ensemble members, grouped by decade.
+    Here heatwave event duration is defined as a number of consecutive days in which the maximum daily air temperature exceeds the local climatologically defined threshold.
+    Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
+    The longest contiguous heatwave in each decade is presented as $L$.
+    }
     \label{tas-poisson}
 \end{adjustwidth}
 \end{figure}
@@ -448,7 +316,13 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
     \begin{center}
         \includegraphics[width=\linewidth]{./utci_poisson.pdf}
     \end{center}
-    \caption{PDF}
+    \caption{
+    {\bf UTCI adjustment with Met Office heatwave threshold predicts heatwaves up to 36 days long in the 2070s.}
+    Comparison of all heatwave events across all years and ensemble members, grouped by decade.
+    Here heatwave event duration is defined as a number of consecutive days in which the UTCI adjusted maximum daily air temperature exceeds the local climatologically defined threshold.
+    Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
+    The longest contiguous heatwave in each decade is presented as $L$.
+    }
     \label{utci-poisson}
 \end{adjustwidth}
 \end{figure}
@@ -458,7 +332,13 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
     \begin{center}
         \includegraphics[width=\linewidth]{./u10_poisson.pdf}
     \end{center}
-    \caption{PDF}
+    \caption{
+    {\bf UTCI heat stress definition predicts heatwaves up to 44 days long in the 2070s.}
+    Comparison of all heatwave events across all years and ensemble members, grouped by decade.
+    Here heatwave event duration is defined as a number of consecutive days in which the UTCI adjusted maximum daily air temperature exceeds the UTCI theoretical heat stress threshold.
+    Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
+    The longest contiguous heatwave in each decade is presented as $L$.
+    }
     \label{u10-poisson}
 \end{adjustwidth}
 \end{figure}
