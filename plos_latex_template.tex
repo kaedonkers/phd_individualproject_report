@@ -120,6 +120,18 @@ Background:
 
 \subsection*{UKCP18 Data}
 
+- RCP8.5 climate forcing scenario
+- Land Convection Permitting model
+    - HadREM3-RA11M
+    - driven by perturbed variants of the Met Office Unified Model Global Atmosphere GA7 model (HadREM3-GA705) at 12km resolution
+    - The HadREM3-GA705 models were driven by perturbed variants of the global HadGEM3-GC3.05
+- set of 12 model runs (ensemble members)
+- 2.2km spatial resolution
+- Maximum daily air temperature at 1.5m altitude
+- Supplimented with:
+    - Daily mean relative humidity
+    - 
+
 
 \subsection*{Met Office heatwave analysis}
 
@@ -306,6 +318,7 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
     Here heatwave event duration is defined as a number of consecutive days in which the maximum daily air temperature exceeds the local climatologically defined threshold.
     Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
     The longest contiguous heatwave in each decade is presented as $L$.
+    Occurrence frequency is shown on a logarithmic scale so as to highlight low likelihood, high duration heatwave events.
     }
     \label{tas-poisson}
 \end{adjustwidth}
@@ -317,11 +330,12 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
         \includegraphics[width=\linewidth]{./utci_poisson.pdf}
     \end{center}
     \caption{
-    {\bf UTCI adjustment with Met Office heatwave threshold predicts heatwaves up to 36 days long in the 2070s.}
+    {\bf UTCI with Met Office heatwave threshold predicts heatwaves up to 36 days long in the 2070s.}
     Comparison of all heatwave events across all years and ensemble members, grouped by decade.
     Here heatwave event duration is defined as a number of consecutive days in which the UTCI adjusted maximum daily air temperature exceeds the local climatologically defined threshold.
     Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
     The longest contiguous heatwave in each decade is presented as $L$.
+    Occurrence frequency is shown on a logarithmic scale so as to highlight low likelihood, high duration heatwave events.
     }
     \label{utci-poisson}
 \end{adjustwidth}
@@ -338,6 +352,7 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
     Here heatwave event duration is defined as a number of consecutive days in which the UTCI adjusted maximum daily air temperature exceeds the UTCI theoretical heat stress threshold.
     Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
     The longest contiguous heatwave in each decade is presented as $L$.
+    Occurrence frequency is shown on a logarithmic scale so as to highlight low likelihood, high duration heatwave events.
     }
     \label{u10-poisson}
 \end{adjustwidth}
