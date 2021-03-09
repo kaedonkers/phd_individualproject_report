@@ -106,15 +106,46 @@ As global average temperatures continue to increase under climate change, extrem
 
 Background:
 - CLIMAR/Risk framework...
+
 - Climate change global temperature increase
-- European heatwave 2003(?)
-- UK heatwaves 2020
-- Excess deaths, infrastructure impacts, etc.
+- European heatwave 2003 [cit Stott2004] = hottest european summer for 500 years
+- European heatwave 2019 [cit Voutard2020] = record breaking
+- UK heatwave mortality [cit johnson2005] and morbidity [cit smith2016]
+- infrastructure impacts [cit Dawson et al., 2017]
+
+As global mean temperatures increase due to climate change, heatwaves are expected to get hotter, longer and more frequent. 
+Indeed we are already seeing many more unprecedented heatwaves in Europe, starting in 2003 with the hottest heatwave for 500 years \cite{Stott2004} and continuing to break records in 2019, the latter being statistically attributed to anthropogenic climate change. \cite{Vautard2020} 
+The UK heatwave in August 2020 was another record breaker. \cite{Askew2020}
+Heatwaves in the UK have been shown to increase human morbidity \cite{Smith2016}, mortality \cite{Johnson2004} and disruption to critical infrastructure. \cite{Dawson2016}
+
+
+
+
+
+
+- WMO heatwave definition [cit WMO2018]
+    - "A period of marked unusual hot weather
+over a region persisting for at least three consecutive days during the warm period of the year based on local climatological con- ditions, with thermal conditions recorded above given thresholds." 
+
 - Met Office heatwave definition [\cite{McCarthy2019}]
     - Important to challenge assumptions since dominant weather patterns may change in future 
+    - "Despite the widespread usage, ... there is no unified definition, either within the United Kingdom or internationally." [\cite{McCarthy2019}]
+    
+    - 90th percentile of maximum daily temperature for July in years 1981-2010 within a county, rounded to nearest whole degree °C.
+
+    - Critique of this method
+        - Definition relies on climatology, but years in which climate change have already adjusted climatology were used. It is not clear for which years this shifting baseline is relevant.
+        - Climatology includes some of the ten warmest years on record (since 2002)
+        - Climatology includes 
+        - Climatology arbitrarily defined on a county basis, despite marked variation within some county boundaries.
+        - Definition has been made to balance responsibilities of national meteorological service messaging, in which public perception and frequency of messaging are key consideration.
+        - However this is not so useful when applied to climate projection data decades in the future.
+        - Physiologically significant physical parameters like humidity and wind speed not included 
+    
 - UTCI background
+    - 
 
-
+- Therefore a comparison of Met Office heatwave thresholds with UTCI heat stress thresholds is conducted in this paper.
 
 \section*{Materials and methods}
 
@@ -127,10 +158,13 @@ Background:
     - The HadREM3-GA705 models were driven by perturbed variants of the global HadGEM3-GC3.05
 - set of 12 model runs (ensemble members)
 - 2.2km spatial resolution
+    - Spatial average of Greater London area
+    - Presumable mean
 - Maximum daily air temperature at 1.5m altitude
-- Supplimented with:
+- Supplemented with:
     - Daily mean relative humidity
-    - 
+    - Daily mean surface wind speed
+
 
 
 \subsection*{Met Office heatwave analysis}
@@ -181,7 +215,7 @@ Ways to improve:
 
 Future exploration:
 - Explore change in higher tiers of heat stress from UTCI data
-- Tasmin (nighttime) temperatures
+- Tasmin (nighttime) temperatures ("tropical nights")
 - Use incident radiation and cloud cover to improve UTCI calculation
 - Use urban data to better model mean radiant temperature
 - Use zero-inflated Poisson to fit heatwave duration graphs
@@ -192,7 +226,7 @@ Future exploration:
 
 
 
-
+\cite{Askew2020}
 
 
 
@@ -202,6 +236,7 @@ Future exploration:
 \pagebreak
 
 \bibliographystyle{plos2015}
+
 \bibliography{CLIMAR-2021_Mar_report.bib}
 
 
