@@ -99,7 +99,7 @@ Kevin Donkers\textsuperscript{1,2*}
 % ABSTRACT (below 300 words)
 \section*{Abstract}
 
-As global average temperatures continue to increase under climate change, extreme events will become more common and previously impossible events the new extremes. The impacts of high temperatures are far reaching and the increased likelihood of extreme heatwaves is already being felt, for instance with the 2003 European heatwave which caused **** excess deaths [cit]. In the UK the Met Office define a heatwave as three or more consecutive days of daily maximum temperatures exceeding a given threshold temperature, as defined by the local climatology[cit]. We use this to analyse the number and duration of heatwaves projected to occur in London under the UKCP18 climate projections. In addition we conduct this heatwave analysis using a Universal Thermal Climate Index (UTCI) adjustment to the maximum daily air temperature, which factors in humidity and windspeed to provide a more physiologically accurate representation of high temperatures. This could be used to overcome some of the assumptions posed in the Met Office heatwave definition in order to define a more universal heatwave definition.
+As global average temperatures continue to increase under climate change, extreme events will become more common and previously impossible events the new extremes. The impacts of high temperatures are far reaching and the increased likelihood of extreme heatwaves is already being felt, for instance with the 2003 European heatwave which caused about 70,000 excess deaths\cite{Vautard2020}. In the UK the Met Office define a heatwave as three or more consecutive days of daily maximum temperatures exceeding a given threshold temperature, as defined by the local climatology.\cite{McCarthy2019} We use this to analyse the number and duration of heatwaves projected to occur in London under the UKCP18 climate projections. In addition we conduct this heatwave analysis using a Universal Thermal Climate Index (UTCI) adjustment to the maximum daily air temperature, which factors in humidity and windspeed to provide a more physiologically accurate representation of high temperatures. This could be used to overcome some of the assumptions posed in the Met Office heatwave definition in order to define a more universal heatwave definition.
 
 % INTRODUCTION
 \section*{Introduction}
@@ -119,10 +119,11 @@ These include convection permitting models (CPM) which go down to a 2.2 km spati
 All meteorological variables in this model output are available at a daily temporal resolution, with air temperature available up to hourly.
 This means that UKCP18 data can be used to predict heatwave activity in the UK for the rest of the 21\textsuperscript{st} century.
 
-
-The World Meteorological Organisation defines a heatwave as\cite{WMO2018}:
+\pagebreak
+\noindent
+The World Meteorological Organisation defines a heatwave as:
 \begin{quote}
-    A period of marked unusual hot weather over a region persisting for at least three consecutive days during the warm period of the year based on local climatological conditions, with thermal conditions recorded above given thresholds.
+    A period of marked unusual hot weather over a region persisting for at least three consecutive days during the warm period of the year based on local climatological conditions, with thermal conditions recorded above given thresholds.\cite{WMO2018}
 \end{quote}
 The UK Met Office uses this definition to specify a heatwave as three or more consecutive days where the maximum daily air temperature exceeds a threshold defined by the local climatology, as published by McCarthy \textit{et al.}.\cite{McCarthy2019}
 In this case the threshold is the 90{\textsuperscript{th}} percentile of maximum daily temperature within a county for July in years 1981-2010, rounded to nearest whole °C.
@@ -137,19 +138,6 @@ Second, McCarthy \textit{et al.} define the threshold on a county by county basi
 For instance, many coastal counties in England experience the full range of 90\textsuperscript{th} percentile July maximum daily temperatures used to define the threshold, as seen in Fig ~\ref{McCarthy-fig3}.\cite{McCarthy2019}
 Similarly, urban areas which experience greater overall temperatures than the surrounding rural areas of the same county, due to urban heat island effects, will have a less relevant threshold if the rural areas make up the majority of the county land area.
 
-\begin{figure}
-% \begin{adjustwidth}{-2.25in}{0in}
-    \begin{center}
-        \includegraphics[width=0.65\linewidth]{./mccarthy2019-fig3.jpg}
-    \end{center}
-    \caption{
-    {\bf Plot from McCarthy \textit{et al.}, 2019.}
-    \textit{The 90th percentile of July daily maximum temperatures (°C) determined on a 1 × 1km grid. England, Wales and Scotland county geographies are overlain.}\cite{McCarthy2019}
-    }
-    \label{McCarthy-fig3}
-% \end{adjustwidth}
-\end{figure}
-
 Third, air temperature may be a good indicator of how hot conditions feel, but physiologically accurate estimates of heat stress rely on multiple meteorological factors, such as humidity and wind speed, and non-meteorological factors, such as the temperature of physical surroundings and availability of shading.
 Basing a heatwave definition on maximum daily temperature alone is simple and broadly representative of the meteorological conditions that tend to accompany heat waves the UK (summer high-pressure systems), but this may not always be the case as the UK's climate heats up and unprecedented weather patterns emerge.
 
@@ -161,6 +149,9 @@ Błażejczyk, one of the originators of UTCI, defines it as:
     The air temperature ($T_a$) of the reference condition causing the same model response as actual conditions.\cite{Blazejczyk2012}
 \end{quote}
 Essentially, UTCI is the temperature in the reference conditions that would elicit exactly the same physiological response as the real-world conditions being considered.
+
+\pagebreak
+\noindent
 This reference condition is defined as:
 \begin{itemize}
     \item Relative humidity ($RH$) of $50\%$
@@ -172,13 +163,13 @@ Mathematically the relationship can be represented by:
     UTCI &= f(T_a, T_{mrt}, RH, v_w) \\
     &= T_a + \text{Offset}(T_a, T_{mrt}, RH, v_w)
 \end{align*}
-The offset can be approximated by a 6\textsuperscript{th} order polynomial of $T_a$, $T_{mrt}-T_a$, $RH$ and $v_w$.
+The offset can be approximated by a 6\textsuperscript{th} order polynomial of $T_a$, $T_{mrt}-T_a$, $RH$ and $v_w$.\cite{Blazejczyk2013}
 UTCI values can be banded into ten categories with specific physiological responses to thermal stress, as seen in Table~\ref{utci-table}.
 
 \begin{table}[]
 \centering
 \caption{
-{\bf UTCI thermal stress categories.\cite{Blazejczyk2012}}}
+{\bf UTCI thermal stress categories.\cite{Blazejczyk2013}}}
 \begin{tabular}{|l|l|}
 \hline
 \textbf{UTCI (°C) range} & \textbf{Thermal stress category} \\ \thickhline
@@ -200,34 +191,65 @@ less than -40   & Extreme cold stress     \\ \hline
 The purpose of this project is, therefore, to compare the number and duration of heatwave events in the UKCP18 climate change for the three decades available (1981-2000, 2021-2040 and 2061-2080), using the Met Office heatwave definition, the UTCI heat stress definition and a combination of UTCI values with local climatology threshold.
 Due to computer processing constraints, all the analysis in this project was conducted on a spatial subset of the data representing the Greater London area.
 
+\begin{figure}
+% \begin{adjustwidth}{-2.25in}{0in}
+    \begin{center}
+        \includegraphics[width=\linewidth]{./mccarthy2019-fig3.jpg}
+    \end{center}
+    \caption{
+    {\bf Plot from McCarthy \textit{et al.}, 2019.}
+    \textit{The 90th percentile of July daily maximum temperatures (°C) determined on a 1 × 1km grid. England, Wales and Scotland county geographies are overlain.}\cite{McCarthy2019}
+    }
+    \label{McCarthy-fig3}
+% \end{adjustwidth}
+\end{figure}
+
 
 \pagebreak
 
 \section*{Materials and methods}
 
 \subsection*{UKCP18 Data}
+UKCP18 data consists of global, regional and local climate prediction data. 
+For this project data from the land convection permitting model (CPM), HadREM3-RA11M, representing the relative concentration pathway (RCP) 8.5, was used with a spatial resolution of 2.2 km (local scale).
+This model output consisted of 12 model runs (ensemble members) and a spatial average for the Greater London area was taken to ease computation.
+The HadREM3-RA11M model was driven at it's boundary by perturbed variants of the Met Office Unified Model Global Atmosphere GA7 model (HadREM3-GA705) at 12km resolution, which in turn were driven by perturbed variants of the global HadGEM3-GC3.05 climate model at 60km resolution.\cite{UKCP18}
 
-- RCP8.5 climate forcing scenario
-- Land Convection Permitting model
-    - HadREM3-RA11M
-    - driven by perturbed variants of the Met Office Unified Model Global Atmosphere GA7 model (HadREM3-GA705) at 12km resolution
-    - The HadREM3-GA705 models were driven by perturbed variants of the global HadGEM3-GC3.05
-- set of 12 model runs (ensemble members)
-- 2.2km spatial resolution
-    - Spatial average of Greater London area
-    - Presumable mean
-- Maximum daily air temperature at 1.5m altitude
-- Supplemented with:
-    - Daily mean relative humidity
-    - Daily mean surface wind speed
-
-
-
-\subsection*{Met Office heatwave analysis}
-
+\noindent
+The following meteorological variables were used in this project:
+\begin{itemize}
+    \item Maximum daily air temperature at 1.5m altitude (\texttt{tasmax})
+    \item Daily mean relative humidity (\texttt{hurs})
+    \item Daily mean surface wind speed (\texttt{sfcWind})
+\end{itemize}
+Data was downloaded from the Centre for Environmental Data Analysis (CEDA) archive via File Transfer Protocol (FTP).\cite{UKCP18data}
 
 \subsection*{UTCI calculation}
 For the purposes of this project the open source Python package PyMeteoSalute was used to calculate UTCI with precalculated polymonial coefficients.\cite{pymeteosalute}
+UTCI values were calculated using \texttt{tasmax}, \texttt{hurs} and \texttt{sfcWind} from UKCP data.
+$T_{mrt}$ was set to equal \texttt{tasmax}.
+This was because $T_{mrt}$ cannot be calculated from the variables available in UKPC data.
+This assumption is reasonable given that the UTCI reference conditions also set $T_{mrt}=T_a$, therefore allowing us to determine the effects of the $RH$ and $v_w$ on modulating $T_a$.
+
+
+\subsection*{Heatwave analysis}
+For the purposes of this project a heatwave is defined as three or more consecutive days above a given temperature threshold.
+The thresholds used were 28°C, defined by the Met Office as the threshold for London\cite{McCarthy2019}, and 26°C, the temperature at which moderate heat stress is induced in UTCI theory.\cite{Blazejczyk2013}
+\texttt{tasmax} data was compared against the 28°C, and calculated UTCI data was compared against both 28°C and 26°C thresholds.
+The results were grouped by year so as to provide the annual number of hot days and heatwave events.
+
+Box plots were made of the absolute number of days per year exceeding the threshold and the number of days per year within a heatwave event. 
+These were grouped by decade.
+Histograms were made for the number occurrences of consecutive hot days (i.e. heatwaves) of a certain length.
+Given the low heatwave event frequency a logarithmic scale was used on the y-axes.
+Poisson regressions were fitted to the histograms in order to understand the overall probability of long heatwaves for each decade.
+
+
+All processing was conducted using the Python processing language.
+Statistics and consecutive days analysis were calculated using the packages NumPy, Iris, Xarray and Pandas.
+Plots were made using Matplotlib.
+
+
 
 
 
