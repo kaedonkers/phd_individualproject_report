@@ -98,35 +98,35 @@ Kevin Donkers\textsuperscript{1,2*}
 
 % ABSTRACT (below 300 words)
 \section*{Abstract}
-% CLIMAR! Mention Climar framework!
-As global average temperatures continue to increase under climate change, extreme events will become commonplace and previously impossible events the new extremes. The impacts of high temperatures  are far reaching and the increased likelihood of extreme heatwaves is already being felt, for instance with the 2003(??) European heatwave which caused **** excess deaths [cit]. In the UK the Met Office define a heatwave as three or more consecutive days of daily maximum temperatures exceeding a given threshold temperature, as defined by the local climatology[cit]. We use this to analyse the number and duration of heatwaves projected to occur in London under the UKCP18 climate projections. In addition we conduct this heatwave analysis using a Universal Thermal Climate Index (UTCI) adjustment to the maximum daily air temperature, which factors in humidity and windspeed to provide a more physiologically accurate representation of high temperatures. This could be used to overcome some of the assumptions posed in the Met Office heatwave definition in order to define a more universal heatwave definition.
+
+As global average temperatures continue to increase under climate change, extreme events will become more common and previously impossible events the new extremes. The impacts of high temperatures are far reaching and the increased likelihood of extreme heatwaves is already being felt, for instance with the 2003 European heatwave which caused **** excess deaths [cit]. In the UK the Met Office define a heatwave as three or more consecutive days of daily maximum temperatures exceeding a given threshold temperature, as defined by the local climatology[cit]. We use this to analyse the number and duration of heatwaves projected to occur in London under the UKCP18 climate projections. In addition we conduct this heatwave analysis using a Universal Thermal Climate Index (UTCI) adjustment to the maximum daily air temperature, which factors in humidity and windspeed to provide a more physiologically accurate representation of high temperatures. This could be used to overcome some of the assumptions posed in the Met Office heatwave definition in order to define a more universal heatwave definition.
 
 % INTRODUCTION
 \section*{Introduction}
-
-% Background:
-% - CLIMAR/Risk framework...
-
-% - Climate change global temperature increase
-% - European heatwave 2003 [cit Stott2004] = hottest european summer for 500 years
-% - European heatwave 2019 [cit Voutard2020] = record breaking
-% - UK heatwave mortality [cit johnson2005] and morbidity [cit smith2016]
-% - infrastructure impacts [cit Dawson et al., 2017]
 
 As global mean temperatures increase due to climate change, heatwaves are expected to get hotter, longer and more frequent. 
 Indeed we are already seeing many more unprecedented heatwaves in Europe, starting in 2003 with the hottest heatwave for 500 years\cite{Stott2004} and continuing to break records in 2019, the latter being statistically attributed to anthropogenic climate change.\cite{Vautard2020} 
 The UK heatwave in August 2020 was another record breaker.\cite{Askew2020}
 Heatwaves in the UK have been shown to increase human morbidity\cite{Smith2016}, mortality\cite{Johnson2004} and disruption to critical infrastructure.\cite{Dawson2016}
 
-MET OFFICE UKCP CLIMATE PROJECTIONS
+
+The Met Office Hadley Centre has been working on climate change predictions since the early 1990s.
+The Centre has developed and published data from a series of global climate models called HadGEM.
+These models are used to initiate a series of regional climate models, HadREM, which produce climate predictions on a finer spatial resolution.
+About every decade a regional climate model is run and published for the UK.
+The latest of these, UKCP18, provides data on a range of spatial scales and emissions scenarios.\cite{UKCP18}
+These include convection permitting models (CPM) which go down to a 2.2 km spatial resolution and can start to resolve convective weather, an important feature with regards to predicting intense precipitation events.
+All meteorological variables in this model output are available at a daily temporal resolution, with air temperature available up to hourly.
+This means that UKCP18 data can be used to predict heatwave activity in the UK for the rest of the 21\textsuperscript{st} century.
+
 
 The World Meteorological Organisation defines a heatwave as\cite{WMO2018}:
 \begin{quote}
     A period of marked unusual hot weather over a region persisting for at least three consecutive days during the warm period of the year based on local climatological conditions, with thermal conditions recorded above given thresholds.
 \end{quote}
 The UK Met Office uses this definition to specify a heatwave as three or more consecutive days where the maximum daily air temperature exceeds a threshold defined by the local climatology, as published by McCarthy \textit{et al.}.\cite{McCarthy2019}
-In this case the threshold is the 90{\textsuperscript{th}} percentile of maximum daily temperature for July in years 1981-2010 within a county, rounded to nearest whole °C.
-This definition was chosen for both its correlation with public perception that a heatwave must be perceived as an uncommon event and the need for national meteorological services to issue warnings infrequently enough so as not to lose their efficacy.
+In this case the threshold is the 90{\textsuperscript{th}} percentile of maximum daily temperature within a county for July in years 1981-2010, rounded to nearest whole °C.
+This definition was chosen for both its correlation with public perception that a heatwave is an uncommon event and the need for national meteorological services to issue warnings infrequently enough so as not to lose their efficacy.
 To these ends, the definition achieves its aims.
 However, a number of critiques can be raised about this definition.
 
@@ -135,10 +135,7 @@ This is good in terms of public perception but bad for comparing heatwave events
 
 Second, McCarthy \textit{et al.} define the threshold on a county by county basis, which is convenient for public communication but not universal or applicable to all areas of a county.
 For instance, many coastal counties in England experience the full range of 90\textsuperscript{th} percentile July maximum daily temperatures used to define the threshold, as seen in Fig ~\ref{McCarthy-fig3}.\cite{McCarthy2019}
-Similarly, urban areas which experience greater overall temperatures than the surrounding rural areas of the same county due to urban heat island effects, yet thresholds are defined based on an area average.
-
-Third, air temperature may be a good indicator of how hot conditions feel, but physiologically accurate estimates of heat stress rely on multiple meteorological factors, such as humidity and wind speed, and non-meteorological factors, such as ambient temperature and availability of shading.
-Basing a heatwave definition on maximum daily temperature alone is simple and broadly representative of the meteorological conditions that tend to accompany heat waves the UK (summer high-pressure systems), but these conditions may not hold in future as the UK's climate heats up and unprecedented weather patterns emerge.
+Similarly, urban areas which experience greater overall temperatures than the surrounding rural areas of the same county, due to urban heat island effects, will have a less relevant threshold if the rural areas make up the majority of the county land area.
 
 \begin{figure}
 % \begin{adjustwidth}{-2.25in}{0in}
@@ -153,33 +150,55 @@ Basing a heatwave definition on maximum daily temperature alone is simple and br
 % \end{adjustwidth}
 \end{figure}
 
-Therefore, an alternative to basing heatwave definitions on maximum daily air temperature and a local threshold would be base them on biometeorological heat stress metrics which factor in human physiological responses to high temperatures.
+Third, air temperature may be a good indicator of how hot conditions feel, but physiologically accurate estimates of heat stress rely on multiple meteorological factors, such as humidity and wind speed, and non-meteorological factors, such as the temperature of physical surroundings and availability of shading.
+Basing a heatwave definition on maximum daily temperature alone is simple and broadly representative of the meteorological conditions that tend to accompany heat waves the UK (summer high-pressure systems), but this may not always be the case as the UK's climate heats up and unprecedented weather patterns emerge.
+
+Therefore, an alternative to basing heatwave definitions on maximum daily air temperature and a local threshold would be to base them on biometeorological heat stress metrics which factor in human physiological responses to high temperatures.
 This would allow heatwaves to be defined in terms of their effects on people rather than a perceived unusuality of events.
 Over 100 such metrics have been defined in the literature, but Universal Thermal Climate Index (UTCI) was found to be most suitable at representing human response to thermal stress under a variety of climatic and meteorological conditions.\cite{Blazejczyk2012, DiNapoli2018, Zare2018}
+Błażejczyk, one of the originators of UTCI, defines it as:
+\begin{quote}
+    The air temperature ($T_a$) of the reference condition causing the same model response as actual conditions.\cite{Blazejczyk2012}
+\end{quote}
+Essentially, UTCI is the temperature in the reference conditions that would elicit exactly the same physiological response as the real-world conditions being considered.
+This reference condition is defined as:
+\begin{itemize}
+    \item Relative humidity ($RH$) of $50\%$
+    \item Wind speed ($v_w$) of $0.5 ms^{-1}$ at $10 m$ or $0.3 ms^{-1}$ at $1.5 m$
+    \item Mean radiant temperature ($T_{mrt}$) equal to the air temperature (i.e. physical surrounds in thermal equilibrium with the air)
+\end{itemize}
+Mathematically the relationship can be represented by:
+\begin{align*}
+    UTCI &= f(T_a, T_{mrt}, RH, v_w) \\
+    &= T_a + \text{Offset}(T_a, T_{mrt}, RH, v_w)
+\end{align*}
+The offset can be approximated by a 6\textsuperscript{th} order polynomial of $T_a$, $T_{mrt}-T_a$, $RH$ and $v_w$.
+UTCI values can be banded into ten categories with specific physiological responses to thermal stress, as seen in Table~\ref{utci-table}.
+
+\begin{table}[]
+\centering
+\caption{
+{\bf UTCI thermal stress categories.\cite{Blazejczyk2012}}}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{UTCI (°C) range} & \textbf{Thermal stress category} \\ \thickhline
+greater than 48 & Extreme heat stress     \\ \hline
+38 to 48        & Very strong heat stress \\ \hline
+32 to 38        & Strong heat stress      \\ \hline
+26 to 32        & Moderate heat stress    \\ \hline
+9 to 26         & No thermal stress       \\ \hline
+0 to 9          & Slight cold stress      \\ \hline
+0 to -13        & Moderate cold stress    \\ \hline
+-13 to -27      & Strong cold stress      \\ \hline
+-27 to -40      & Very strong cold stress \\ \hline
+less than -40   & Extreme cold stress     \\ \hline
+\end{tabular}
+\label{utci-table}
+\end{table}
 
 
-
-- Therefore a comparison of Met Office heatwave thresholds with UTCI heat stress thresholds is conducted in this paper.
-
-% - WMO heatwave definition [cit WMO2018]
-%     - "A period of marked unusual hot weather
-% over a region persisting for at least three consecutive days during the warm period of the year based on local climatological con- ditions, with thermal conditions recorded above given thresholds." 
-
-% - Met Office heatwave definition [\cite{McCarthy2019}]
-%     - Important to challenge assumptions since dominant weather patterns may change in future 
-%     - "Despite the widespread usage, ... there is no unified definition, either within the United Kingdom or internationally." [\cite{McCarthy2019}]
-    
-%     - 90th percentile of maximum daily temperature for July in years 1981-2010 within a county, rounded to nearest whole degree °C.
-
-%     - Critique of this method
-%         - Definition relies on climatology, but years in which climate change have already adjusted climatology were used. It is not clear for which years this shifting baseline is relevant.
-%         - Climatology includes some of the ten warmest years on record (since 2002)
-%         - Climatology includes 
-%         - Climatology arbitrarily defined on a county basis, despite marked variation within some county boundaries.
-%         - Definition has been made to balance responsibilities of national meteorological service messaging, in which public perception and frequency of messaging are key consideration.
-%         - However this is not so useful when applied to climate projection data decades in the future.
-%         - Physiologically significant physical parameters like humidity and wind speed not included 
-    
+The purpose of this project is, therefore, to compare the number and duration of heatwave events in the UKCP18 climate change for the three decades available (1981-2000, 2021-2040 and 2061-2080), using the Met Office heatwave definition, the UTCI heat stress definition and a combination of UTCI values with local climatology threshold.
+Due to computer processing constraints, all the analysis in this project was conducted on a spatial subset of the data representing the Greater London area.
 
 
 \pagebreak
@@ -208,7 +227,7 @@ Over 100 such metrics have been defined in the literature, but Universal Thermal
 
 
 \subsection*{UTCI calculation}
-
+For the purposes of this project the open source Python package PyMeteoSalute was used to calculate UTCI with precalculated polymonial coefficients.\cite{pymeteosalute}
 
 
 
@@ -331,7 +350,7 @@ Citation~\cite{LaGennusa2005}
 Figure caption text here, please use this space for the figure panel descriptions instead of using subfigure commands. A: Lorem ipsum dolor sit amet. B: Consectetur adipiscing elit.}
 \label{fig1}
 \end{figure}
-
+to
 
 
 \begin{itemize}
