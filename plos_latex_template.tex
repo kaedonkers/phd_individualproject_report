@@ -7,6 +7,12 @@
 % FIGURES
 \usepackage{graphicx}
 \usepackage{pgf}
+% BIBLIOGRAPHY
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{breaklinks=true}
+\urlstyle{same}
+\def\UrlBreaks{\do\/ \do E}
 % amsmath and amssymb packages, useful for mathematical formulas and symbols
 \usepackage{amsmath,amssymb}
 % Use adjustwidth environment to exceed column width (see example table in text)
@@ -207,11 +213,12 @@ Due to computer processing constraints, all the analysis in this project was con
 
 \pagebreak
 
+% MATERIALS & METHODS
 \section*{Materials and methods}
 
 \subsection*{UKCP18 Data}
-UKCP18 data consists of global, regional and local climate prediction data. 
-For this project data from the land convection permitting model (CPM), HadREM3-RA11M, representing the relative concentration pathway (RCP) 8.5, was used with a spatial resolution of 2.2 km (local scale).
+UKCP18 data consists of global, regional and local climate projection data. 
+For this project, data from the land convection permitting model (CPM), HadREM3-RA11M, representing the relative concentration pathway (RCP) 8.5, was used with a spatial resolution of 2.2 km (local scale).
 This model output consisted of 12 model runs (ensemble members) and a spatial average for the Greater London area was taken to ease computation.
 The HadREM3-RA11M model was driven at it's boundary by perturbed variants of the Met Office Unified Model Global Atmosphere GA7 model (HadREM3-GA705) at 12km resolution, which in turn were driven by perturbed variants of the global HadGEM3-GC3.05 climate model at 60km resolution.\cite{UKCP18}
 
@@ -229,24 +236,25 @@ For the purposes of this project the open source Python package PyMeteoSalute wa
 UTCI values were calculated using \texttt{tasmax}, \texttt{hurs} and \texttt{sfcWind} from UKCP data.
 $T_{mrt}$ was set to equal \texttt{tasmax}.
 This was because $T_{mrt}$ cannot be calculated from the variables available in UKPC data.
-This assumption is reasonable given that the UTCI reference conditions also set $T_{mrt}=T_a$, therefore allowing us to determine the effects of the $RH$ and $v_w$ on modulating $T_a$.
+This assumption is reasonable given that the UTCI reference conditions also set $T_{mrt}=T_a$, therefore allowing us to consider the effects of the $RH$ and $v_w$ on modulating $T_a$.
 
 
 \subsection*{Heatwave analysis}
 For the purposes of this project a heatwave is defined as three or more consecutive days above a given temperature threshold.
 The thresholds used were 28°C, defined by the Met Office as the threshold for London\cite{McCarthy2019}, and 26°C, the temperature at which moderate heat stress is induced in UTCI theory.\cite{Blazejczyk2013}
 \texttt{tasmax} data was compared against the 28°C, and calculated UTCI data was compared against both 28°C and 26°C thresholds.
-The results were grouped by year so as to provide the annual number of hot days and heatwave events.
+The results were grouped by year so as to provide the annual number of hot days and heatwave days.
 
-Box plots were made of the absolute number of days per year exceeding the threshold and the number of days per year within a heatwave event. 
+Box plots were made of the absolute number of days per year exceeding a threshold and the number of days per year within a heatwave event. 
 These were grouped by decade.
 Histograms were made for the number occurrences of consecutive hot days (i.e. heatwaves) of a certain length.
-Given the low heatwave event frequency a logarithmic scale was used on the y-axes.
+A logarithmic scale was used on the y-axes to make visible the low occurrence frequency of heatwave events.
 Poisson regressions were fitted to the histograms in order to understand the overall probability of long heatwaves for each decade.
 
 
 All processing was conducted using the Python processing language.
-Statistics and consecutive days analysis were calculated using the packages NumPy, Iris, Xarray and Pandas.
+Statistics consecutive days analysis were calculated using the packages NumPy, Iris, Xarray and Pandas.
+Poisson regression was conducted using the SciPy package.
 Plots were made using Matplotlib.
 
 
@@ -259,7 +267,7 @@ Plots were made using Matplotlib.
 
 
 
-% Results and Discussion can be combined.
+% RESULTS (can be combined with DISCUSSION)
 \section*{Results}
 
 
@@ -273,6 +281,12 @@ Results:
 - Compare tasmax, utci and utci10
 - 
 
+
+
+
+
+
+% DISCUSSION
 \section*{Discussion}
 
 Implications:
@@ -300,14 +314,79 @@ Future exploration:
 - Use zero-inflated Poisson to fit heatwave duration graphs
 
 
+% CONCLUSION
 \section*{Conclusion}
 
 
 
 
-\cite{Askew2020}
+% FIGURES
+\pagebreak
 
+\begin{figure}
+\begin{adjustwidth}{-2.25in}{0in}
+    \begin{center}
+        \includegraphics[width=0.87\linewidth]{./boxplots.pdf}
+    \end{center}
+    \caption{
+    {\bf Annual number of hot and heatwave days increases over the decades modelled.}
+    An accelerated increase is observed in the later decades of the 21\textsuperscript{st} century.
+    Here hot days are defined as the total number of days in the year that exceed a threshold, whereas heatwave days are the total number of days in the year that are part of a continuous 3+ day heatwave. This analysis was done with raw and UTCI adjusted maximum daily air temperatures using thresholds defined by the Met Office and UTCI heat stress theory. Air temperature values for Greater London area used.
+    }
+    \label{boxplots}
+\end{adjustwidth}
+\end{figure}
 
+\begin{figure}
+\begin{adjustwidth}{-2.25in}{0in}
+    \begin{center}
+        \includegraphics[width=\linewidth]{./tas_poisson.pdf}
+    \end{center}
+    \caption{
+    {\bf Met Office heatwave definition predicts heatwaves up to 73 days long in the 2070s.}
+    Comparison of all heatwave events across all years and ensemble members, grouped by decade.
+    Here heatwave event duration is defined as a number of consecutive days in which the maximum daily air temperature exceeds the local climatologically defined threshold.
+    Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
+    The longest contiguous heatwave in each decade is presented as $L$.
+    Occurrence frequency is shown on a logarithmic scale so as to highlight low likelihood, high duration heatwave events.
+    }
+    \label{tas-poisson}
+\end{adjustwidth}
+\end{figure}
+
+\begin{figure}
+\begin{adjustwidth}{-2.25in}{0in}
+    \begin{center}
+        \includegraphics[width=\linewidth]{./utci_poisson.pdf}
+    \end{center}
+    \caption{
+    {\bf UTCI with Met Office heatwave threshold predicts heatwaves up to 36 days long in the 2070s.}
+    Comparison of all heatwave events across all years and ensemble members, grouped by decade.
+    Here heatwave event duration is defined as a number of consecutive days in which the UTCI adjusted maximum daily air temperature exceeds the local climatologically defined threshold.
+    Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
+    The longest contiguous heatwave in each decade is presented as $L$.
+    Occurrence frequency is shown on a logarithmic scale so as to highlight low likelihood, high duration heatwave events.
+    }
+    \label{utci-poisson}
+\end{adjustwidth}
+\end{figure}
+
+\begin{figure}
+\begin{adjustwidth}{-2.25in}{0in}
+    \begin{center}
+        \includegraphics[width=\linewidth]{./u10_poisson.pdf}
+    \end{center}
+    \caption{
+    {\bf UTCI heat stress definition predicts heatwaves up to 44 days long in the 2070s.}
+    Comparison of all heatwave events across all years and ensemble members, grouped by decade.
+    Here heatwave event duration is defined as a number of consecutive days in which the UTCI adjusted maximum daily air temperature exceeds the UTCI theoretical heat stress threshold.
+    Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
+    The longest contiguous heatwave in each decade is presented as $L$.
+    Occurrence frequency is shown on a logarithmic scale so as to highlight low likelihood, high duration heatwave events.
+    }
+    \label{u10-poisson}
+\end{adjustwidth}
+\end{figure}
 
 
 
@@ -404,73 +483,7 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
 
 
 
-\pagebreak
 
-
-\begin{figure}
-\begin{adjustwidth}{-2.25in}{0in}
-    \begin{center}
-        \includegraphics[width=0.9\linewidth]{./boxplots.pdf}
-    \end{center}
-    \caption{
-    {\bf Annual number of hot and heatwave days increases over the decades modelled.}
-    An accelerated increase is observed in the later decades of the 21\textsuperscript{st} century.
-    Here hot days are defined as the total number of days in the year that exceed a threshold, whereas heatwave days are the total number of days in the year that are part of a continuous 3+ day heatwave. This analysis was done with raw and UTCI adjusted maximum daily air temperatures using thresholds defined by the Met Office and UTCI heat stress theory. Air temperature values for Greater London area used.
-    }
-    \label{boxplots}
-\end{adjustwidth}
-\end{figure}
-
-\begin{figure}
-\begin{adjustwidth}{-2.25in}{0in}
-    \begin{center}
-        \includegraphics[width=\linewidth]{./tas_poisson.pdf}
-    \end{center}
-    \caption{
-    {\bf Met Office heatwave definition predicts heatwaves up to 73 days long in the 2070s.}
-    Comparison of all heatwave events across all years and ensemble members, grouped by decade.
-    Here heatwave event duration is defined as a number of consecutive days in which the maximum daily air temperature exceeds the local climatologically defined threshold.
-    Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
-    The longest contiguous heatwave in each decade is presented as $L$.
-    Occurrence frequency is shown on a logarithmic scale so as to highlight low likelihood, high duration heatwave events.
-    }
-    \label{tas-poisson}
-\end{adjustwidth}
-\end{figure}
-
-\begin{figure}
-\begin{adjustwidth}{-2.25in}{0in}
-    \begin{center}
-        \includegraphics[width=\linewidth]{./utci_poisson.pdf}
-    \end{center}
-    \caption{
-    {\bf UTCI with Met Office heatwave threshold predicts heatwaves up to 36 days long in the 2070s.}
-    Comparison of all heatwave events across all years and ensemble members, grouped by decade.
-    Here heatwave event duration is defined as a number of consecutive days in which the UTCI adjusted maximum daily air temperature exceeds the local climatologically defined threshold.
-    Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
-    The longest contiguous heatwave in each decade is presented as $L$.
-    Occurrence frequency is shown on a logarithmic scale so as to highlight low likelihood, high duration heatwave events.
-    }
-    \label{utci-poisson}
-\end{adjustwidth}
-\end{figure}
-
-\begin{figure}
-\begin{adjustwidth}{-2.25in}{0in}
-    \begin{center}
-        \includegraphics[width=\linewidth]{./u10_poisson.pdf}
-    \end{center}
-    \caption{
-    {\bf UTCI heat stress definition predicts heatwaves up to 44 days long in the 2070s.}
-    Comparison of all heatwave events across all years and ensemble members, grouped by decade.
-    Here heatwave event duration is defined as a number of consecutive days in which the UTCI adjusted maximum daily air temperature exceeds the UTCI theoretical heat stress threshold.
-    Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
-    The longest contiguous heatwave in each decade is presented as $L$.
-    Occurrence frequency is shown on a logarithmic scale so as to highlight low likelihood, high duration heatwave events.
-    }
-    \label{u10-poisson}
-\end{adjustwidth}
-\end{figure}
 
 
 
