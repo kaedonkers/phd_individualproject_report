@@ -141,7 +141,7 @@ First, the baseline period that this definition uses is well within living memor
 This is good in terms of public perception but bad for comparing heatwave events decades in the future as heatwave events are expected to increase in frequency and the future public is likely to perceive a different baseline.
 
 Second, McCarthy \textit{et al.} define the threshold on a county by county basis, which is convenient for public communication but not universal or applicable to all areas of a county.
-For instance, many coastal counties in England experience the full range of 90\textsuperscript{th} percentile July maximum daily temperatures used to define the threshold, as seen in Fig ~\ref{McCarthy-fig3}.\cite{McCarthy2019}
+For instance, many of the larger counties in England experience the full range of 90\textsuperscript{th} percentile July maximum daily temperatures used to define the threshold, as seen in Fig ~\ref{McCarthy-fig3}.\cite{McCarthy2019}
 Similarly, urban areas which experience greater overall temperatures than the surrounding rural areas of the same county, due to urban heat island effects, will have a less relevant threshold if the rural areas make up the majority of the county land area.
 
 Third, air temperature may be a good indicator of how hot conditions feel, but physiologically accurate estimates of heat stress rely on multiple meteorological factors, such as humidity and wind speed, and non-meteorological factors, such as the temperature of physical surroundings and availability of shading.
@@ -270,19 +270,25 @@ Plots were made using Matplotlib.
 % RESULTS (can be combined with DISCUSSION)
 \section*{Results}
 
+Fig~\ref{boxplots} shows the annual number of hot and heatwave days per decade.
+The left hand plots, in orange, are boxplots of the absolute number of days per year which exceeded the temperature threshold, here labelled Hot Days. 
+The right hand plots, in red, are boxplots of the number of days per year which were within a heatwave i.e. three or more consecutive hot days.
+The two plots on the top represent maximum daily air temperature thresholded with the local climatology.
+The two plots on the bottom represent maximum daily UTCI cut off at the moderate heat stress threshold.
 
+We can see from these plots that the absolute number of hot and heatwave days increases for each decade into the future, regardless of the threshold used (local climatology or heat stress).
+There appears to be an acceleration in this increase in the latter decades of the 21st century.
+In all plots the median number of annual hot or heatwave days in the 2070s exceeds the decadal maximum in the 1980s.
+The heat stress threshold finds fewer hot or heatwave days than the local climatology threshold.
+Interestingly, using heat stress as a threshold suggests that the heatwave events in the 1980s were only outliers i.e. three or more consecutive days of moderate heat stress was unusual.
 
-Plots
-- Decadal box plots
-- Poisson fits
-- Report poisson lambdas
-
-Results:
-- Compare tasmax, utci and utci10
-- 
-
-
-
+Fig~\ref{tas-poisson} and Fig~\ref{u10-poisson} the red bars show distributions of heatwave duration in days.
+Fig~\ref{tas-poisson} represent heatwave durations for maximum daily air temperature thresholded with the local climatology.
+Fig~\ref{u10-poisson} represent heatwave durations for maximum daily UTCI cut off at the moderate heat stress threshold.
+The Y-axis is logarithmically scaled in order to make visible the low occurrence of long duration heatwaves given the large number of heatwaves with a duration of zero days i.e. below the threshold.
+A Poisson curve was fitted to each distribution, as shown by the dark blue line.
+With the rate $\lambda$ is noted in the top right hand corner of each plot.
+The longest heatwave in Fig~\ref{tas-poisson} is 73 days long, while the longest in Fig~\ref{u10-poisson} is 44 days long, both occurring in the 2070s.
 
 
 
@@ -326,7 +332,8 @@ Future exploration:
 \begin{figure}
 \begin{adjustwidth}{-2.25in}{0in}
     \begin{center}
-        \includegraphics[width=0.87\linewidth]{./boxplots.pdf}
+        % \includegraphics[width=0.87\linewidth]{./boxplots.pdf}
+        \includegraphics[width=0.87\linewidth]{./boxplots_slides.pdf}
     \end{center}
     \caption{
     {\bf Annual number of hot and heatwave days increases over the decades modelled.}
@@ -354,22 +361,22 @@ Future exploration:
 \end{adjustwidth}
 \end{figure}
 
-\begin{figure}
-\begin{adjustwidth}{-2.25in}{0in}
-    \begin{center}
-        \includegraphics[width=\linewidth]{./utci_poisson.pdf}
-    \end{center}
-    \caption{
-    {\bf UTCI with Met Office heatwave threshold predicts heatwaves up to 36 days long in the 2070s.}
-    Comparison of all heatwave events across all years and ensemble members, grouped by decade.
-    Here heatwave event duration is defined as a number of consecutive days in which the UTCI adjusted maximum daily air temperature exceeds the local climatologically defined threshold.
-    Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
-    The longest contiguous heatwave in each decade is presented as $L$.
-    Occurrence frequency is shown on a logarithmic scale so as to highlight low likelihood, high duration heatwave events.
-    }
-    \label{utci-poisson}
-\end{adjustwidth}
-\end{figure}
+% \begin{figure}
+% \begin{adjustwidth}{-2.25in}{0in}
+%     \begin{center}
+%         \includegraphics[width=\linewidth]{./utci_poisson.pdf}
+%     \end{center}
+%     \caption{
+%     {\bf UTCI with Met Office heatwave threshold predicts heatwaves up to 36 days long in the 2070s.}
+%     Comparison of all heatwave events across all years and ensemble members, grouped by decade.
+%     Here heatwave event duration is defined as a number of consecutive days in which the UTCI adjusted maximum daily air temperature exceeds the local climatologically defined threshold.
+%     Each decade has had a Poisson distribution fitted to it, with the resulting rate presented as $\lambda$.
+%     The longest contiguous heatwave in each decade is presented as $L$.
+%     Occurrence frequency is shown on a logarithmic scale so as to highlight low likelihood, high duration heatwave events.
+%     }
+%     \label{utci-poisson}
+% \end{adjustwidth}
+% \end{figure}
 
 \begin{figure}
 \begin{adjustwidth}{-2.25in}{0in}
