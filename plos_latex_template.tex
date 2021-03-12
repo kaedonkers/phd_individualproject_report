@@ -295,64 +295,40 @@ The longest heatwave in Fig~\ref{tas-poisson} is 73 days long, while the longest
 % DISCUSSION
 \section*{Discussion}
 
-Using both maximum daily air temperature with a local climatology threshold and maximum daily UTCI with a heat stress threshold yield a trend that the number of heatwaves and duration of heatwaves into the future will increase. 
-However, using UTCI consistently predicted fewer and shorter heatwaves than the Met Office method. Does this suggest that UTCI is a better or more consistent method of defining heatwave thresholds than the one proposed by the Met Office? To answer this more rigorous is statistical analysis is required.
+Using both maximum daily air temperature with a local climatology threshold and maximum daily UTCI with a heat stress threshold yield a trend that the annual number of heatwave days and duration of heatwave events will increase into the future. 
+However, using UTCI consistently predicted fewer and shorter heatwaves than the Met Office method. Does this suggest that UTCI is a better or more consistent method of defining heatwave thresholds than the one proposed by the Met Office? To answer this more rigorous is statistical analysis than was done in this project is required.
 
 The analyses conducted for this report could be improved, chiefly by improving the the method for calculating UTCI.
 Firstly, humidity and windspeed values used to calculate UTCI are daily means so not at same time of day as the maximum daily air temperature.
 This creates a significant uncertainty in the UTCI values, possibly contributing to the lower number of UTCI heatwaves identified.
-Second is the assumption of $T_{mrt}=T_a$ used in the UTCI calculation.
+Second is the assumption of $T_{mrt}=T_a$ used in the UTCI calculation i.e. that the air is in thermal equilibrium with the surroundings.
 At the moderate and strong heat stress levels that predominantly made up the UTCI values, humidity ($RH$) and wind speed ($v_w$) seemed to have only a mild effect on modulating the air temperature ($T_a$).
 While this assumption is justifiable, it is excluding a significant source of heat stress.
-While solar radiation and cloud cover could contribute to the calculate of $T_{mrt}$, both available in UKCP18 data, calculating it still required data not available in the UKCP18 dataset.\cite{Weihs2018}
-Future work could include finding robust ways to estimate $T_{mrt}$
+While solar radiation and cloud cover could contribute to the calculate of $T_{mrt}$, both available in UKCP18 data, calculating it still required data that was not available in the UKCP18 dataset.\cite{Weihs2018}
+Future work could include finding robust ways to estimate $T_{mrt}$, especially given its relevance to the urban heat island effect.
+This may involve including urban built environment and greenspace data.
 
+Future improvements to this work could include using the full range of thermal stress levels in UTCI theory to inform advice about the effects of high temperatures.
+For instance a seven day heatwave at 28°C may not be as impactful as a four day heatwave at 38°C.
 
-For instance I was only analysing maximum daily temperatures i.e. daytime temperatures
-But a large contributor to heat stress during heatwaves are tropical nights which prevent people getting a break from hot weather experienced during the day
+These analyses only considered maximum daily temperature i.e. daytime temperatures.
+Another contributor to heat stress during heatwaves are tropical nights which prevent people getting a break from hot weather experienced during the day.
+Therefore heat stress analysis with \texttt{tasmin} as well as \texttt{tasmax} could be informative.
 
-The multiple heat stress levels in UTCI theory could be used to better predict impact severity of hot weather conditions
-
-The calculation I made to determine UTCI values could be markedly improved.
-I used the assumption that the air temperature is equal to mean radiant temperature 
-Which seems to have meant that humidity and wind speed only mildly modulate air temperature
-But calculating mean radiant temperature proved very non-trivial so I chose to keep the assumption.
-
-Indeed solar radiation and cloud cover, both available in the UKCP dataset, could be used to calculate mean radiant temperature,
-But I couldn’t find an easy way to calculate it
-
-Finally,
-My dismal Poisson fits might be salvageable using a zero-inflated Poisson distribution (thanks Gavin)
-But a brief foray into how it works proved it was much less simple to fit than a vanilla Poisson distribution so I abandoned it
-
-
-
-Ways to improve:
-- Tmrt excluded from UTCI calculation because not enough data to calculate it
-    - Assumed Ta=Tmrt, but this is a substantial assumption i.e. air in thermal equilibrium with surroundings
-    - Will exclude urban heat island effects, which are substantial [cit]
-    - To what extent is urban heat island already accounted for in UKCP air temperature data?
-    - Tmrt can't be applied to UTCI retroactively (e.g. once Exposure has been calculated) since UTCI relies on a 6th order polynomial calculation including every iteration of using Tmrt
-    - \cite{Weihs2018}
-- Humidity and windspeed used in UTCI calculation are daily means so not at same time of day as tasmax
-    - However they don't affect the temperature strongly, so source of error is minimal
-    - Tmrt is source of bigger error since effect is larger
-    - Covariance matrices?
-- 
-
-Future exploration:
-- Explore change in higher tiers of heat stress from UTCI data
-- Tasmin (nighttime) temperatures ("tropical nights")
-- Use incident radiation and cloud cover to improve UTCI calculation
-- Use urban data to better model mean radiant temperature
-- Use zero-inflated Poisson to fit heatwave duration graphs
+Finally, the Poisson curves fitted to Fig~\ref{tas-poisson} and Fig~\ref{u10-poisson} were not a very good fit.
+Their lambda values were useful for confirming the visual observation that the distribution heatwave durations moved to longer heatwaves into the future, but they may not have been accurate.
+A possible solution to this would be to use a zero-inflated Poisson distribution, but the technique proved to be much more complicated than fitting a regular Poisson distribution so it was not attempted.
 
 
 % CONCLUSION
 \section*{Conclusion}
 
+To conclude, the analyses of UK climate projection data conducted in this report confirm the prediction that heatwaves will occur more frequently and for longer as climate change heats our planet.
+Using both the Met Office heatwave definition and UTCI heat stress definitions resulted in the same conclusions, although UTCI heat stress analysis yielded fewer and shorted heat wave events.
+More investigation is needed to determine which method is more suitable for analysing heat wave events in climate projection data.
+However, UTCI has the benefit of providing multiple levels of heat stress severity, unlike the Met Office heatwave definition, which may prove useful if maximum heatwave temperatures continue to break records.
 
-\pagebreak
+% \pagebreak
 
 \bibliographystyle{plos2015}
 
@@ -443,83 +419,77 @@ Future exploration:
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
-\section*{Supporting information}
-% Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
-\paragraph*{S1 Fig.}
-\label{S1_Fig}
-{\bf Bold the title sentence.} Add descriptive text after the title of the item (optional).
+% \pagebreak
+% \section*{Supporting information}
+% % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
+% \paragraph*{S1 Fig.}
+% \label{S1_Fig}
+% {\bf Bold the title sentence.} Add descriptive text after the title of the item (optional).
 
 
 
-\subsection*{Subsection - Other sturff}
+% \subsection*{Subsection - Other sturff}
 
 
 
-CO\textsubscript{2}
+% CO\textsubscript{2}
 
 
-Eq~\ref{eq:schemeP}
+% Eq~\ref{eq:schemeP}
 
 
-Fig~\ref{fig1}
+% Fig~\ref{fig1}
 
 
-Table~\ref{table1} 
+% Table~\ref{table1} 
 
 
-Citation~\cite{LaGennusa2005}
-
-
-
-
-% Use "Eq" instead of "Equation" for equation citations.
-\begin{eqnarray}
-\label{eq:schemeP}
-	\mathrm{P_Y} = \underbrace{H(Y_n) - H(Y_n|\mathbf{V}^{Y}_{n})}_{S_Y} + \underbrace{H(Y_n|\mathbf{V}^{Y}_{n})- H(Y_n|\mathbf{V}^{X,Y}_{n})}_{T_{X\rightarrow Y}},
-\end{eqnarray}
-
-
-% For figure citations, please use "Fig" instead of "Figure".
-% Place figure captions after the first paragraph in which they are cited.
-\begin{figure}[!h]
-\caption{{\bf Bold the figure title.}
-Figure caption text here, please use this space for the figure panel descriptions instead of using subfigure commands. A: Lorem ipsum dolor sit amet. B: Consectetur adipiscing elit.}
-\label{fig1}
-\end{figure}
-to
-
-
-\begin{itemize}
-	\item First bulleted item.
-	\item Second bulleted item.
-	\item Third bulleted item.
-\end{itemize}
-
-% Place tables after the first paragraph in which they are cited.
-\begin{table}[!ht]
-\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-\centering
-\caption{
-{\bf Table caption Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam.}}
-\begin{tabular}{|l+l|l|l|l|l|l|l|}
-\hline
-\multicolumn{4}{|l|}{\bf Heading1} & \multicolumn{4}{|l|}{\bf Heading2}\\ \thickhline
-$cell1 row1$ & cell2 row 1 & cell3 row 1 & cell4 row 1 & cell5 row 1 & cell6 row 1 & cell7 row 1 & cell8 row 1\\ \hline
-$cell1 row2$ & cell2 row 2 & cell3 row 2 & cell4 row 2 & cell5 row 2 & cell6 row 2 & cell7 row 2 & cell8 row 2\\ \hline
-$cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row 3 & cell7 row 3 & cell8 row 3\\ \hline
-\end{tabular}
-\begin{flushleft} Table notes Phasellus venenatis, tortor nec vestibulum mattis, massa tortor interdum felis, nec pellentesque metus tortor nec nisl. Ut ornare mauris tellus, vel dapibus arcu suscipit sed.
-\end{flushleft}
-\label{table1}
-\end{adjustwidth}
-\end{table}
+% Citation~\cite{LaGennusa2005}
 
 
 
 
+% % Use "Eq" instead of "Equation" for equation citations.
+% \begin{eqnarray}
+% \label{eq:schemeP}
+% 	\mathrm{P_Y} = \underbrace{H(Y_n) - H(Y_n|\mathbf{V}^{Y}_{n})}_{S_Y} + \underbrace{H(Y_n|\mathbf{V}^{Y}_{n})- H(Y_n|\mathbf{V}^{X,Y}_{n})}_{T_{X\rightarrow Y}},
+% \end{eqnarray}
 
 
+% % For figure citations, please use "Fig" instead of "Figure".
+% % Place figure captions after the first paragraph in which they are cited.
+% \begin{figure}[!h]
+% \caption{{\bf Bold the figure title.}
+% Figure caption text here, please use this space for the figure panel descriptions instead of using subfigure commands. A: Lorem ipsum dolor sit amet. B: Consectetur adipiscing elit.}
+% \label{fig1}
+% \end{figure}
+% to
+
+
+% \begin{itemize}
+% 	\item First bulleted item.
+% 	\item Second bulleted item.
+% 	\item Third bulleted item.
+% \end{itemize}
+
+% % Place tables after the first paragraph in which they are cited.
+% \begin{table}[!ht]
+% \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+% \centering
+% \caption{
+% {\bf Table caption Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam.}}
+% \begin{tabular}{|l+l|l|l|l|l|l|l|}
+% \hline
+% \multicolumn{4}{|l|}{\bf Heading1} & \multicolumn{4}{|l|}{\bf Heading2}\\ \thickhline
+% $cell1 row1$ & cell2 row 1 & cell3 row 1 & cell4 row 1 & cell5 row 1 & cell6 row 1 & cell7 row 1 & cell8 row 1\\ \hline
+% $cell1 row2$ & cell2 row 2 & cell3 row 2 & cell4 row 2 & cell5 row 2 & cell6 row 2 & cell7 row 2 & cell8 row 2\\ \hline
+% $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row 3 & cell7 row 3 & cell8 row 3\\ \hline
+% \end{tabular}
+% \begin{flushleft} Table notes Phasellus venenatis, tortor nec vestibulum mattis, massa tortor interdum felis, nec pellentesque metus tortor nec nisl. Ut ornare mauris tellus, vel dapibus arcu suscipit sed.
+% \end{flushleft}
+% \label{table1}
+% \end{adjustwidth}
+% \end{table}
 
 
 
