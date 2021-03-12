@@ -295,9 +295,37 @@ The longest heatwave in Fig~\ref{tas-poisson} is 73 days long, while the longest
 % DISCUSSION
 \section*{Discussion}
 
-Implications:
-- UTCI with met office threshold not good
-- UTCI does pick out heatwaves, but less than plain air temperature
+Using both maximum daily air temperature with a local climatology threshold and maximum daily UTCI with a heat stress threshold yield a trend that the number of heatwaves and duration of heatwaves into the future will increase. 
+However, using UTCI consistently predicted fewer and shorter heatwaves than the Met Office method. Does this suggest that UTCI is a better or more consistent method of defining heatwave thresholds than the one proposed by the Met Office? To answer this more rigorous is statistical analysis is required.
+
+The analyses conducted for this report could be improved, chiefly by improving the the method for calculating UTCI.
+Firstly, humidity and windspeed values used to calculate UTCI are daily means so not at same time of day as the maximum daily air temperature.
+This creates a significant uncertainty in the UTCI values, possibly contributing to the lower number of UTCI heatwaves identified.
+Second is the assumption of $T_{mrt}=T_a$ used in the UTCI calculation.
+At the moderate and strong heat stress levels that predominantly made up the UTCI values, humidity ($RH$) and wind speed ($v_w$) seemed to have only a mild effect on modulating the air temperature ($T_a$).
+While this assumption is justifiable, it is excluding a significant source of heat stress.
+While solar radiation and cloud cover could contribute to the calculate of $T_{mrt}$, both available in UKCP18 data, calculating it still required data not available in the UKCP18 dataset.\cite{Weihs2018}
+Future work could include finding robust ways to estimate $T_{mrt}$
+
+
+For instance I was only analysing maximum daily temperatures i.e. daytime temperatures
+But a large contributor to heat stress during heatwaves are tropical nights which prevent people getting a break from hot weather experienced during the day
+
+The multiple heat stress levels in UTCI theory could be used to better predict impact severity of hot weather conditions
+
+The calculation I made to determine UTCI values could be markedly improved.
+I used the assumption that the air temperature is equal to mean radiant temperature 
+Which seems to have meant that humidity and wind speed only mildly modulate air temperature
+But calculating mean radiant temperature proved very non-trivial so I chose to keep the assumption.
+
+Indeed solar radiation and cloud cover, both available in the UKCP dataset, could be used to calculate mean radiant temperature,
+But I couldn’t find an easy way to calculate it
+
+Finally,
+My dismal Poisson fits might be salvageable using a zero-inflated Poisson distribution (thanks Gavin)
+But a brief foray into how it works proved it was much less simple to fit than a vanilla Poisson distribution so I abandoned it
+
+
 
 Ways to improve:
 - Tmrt excluded from UTCI calculation because not enough data to calculate it
@@ -324,12 +352,21 @@ Future exploration:
 \section*{Conclusion}
 
 
+\pagebreak
+
+\bibliographystyle{plos2015}
+
+\bibliography{CLIMAR-2021_Mar_report.bib}
 
 
 % FIGURES
 \pagebreak
 
-\begin{figure}
+\begin{adjustwidth}{-2.25in}{0in}
+\section*{Figures}
+\end{adjustwidth}
+
+\begin{figure}[!h]
 \begin{adjustwidth}{-2.25in}{0in}
     \begin{center}
         % \includegraphics[width=0.87\linewidth]{./boxplots.pdf}
@@ -395,14 +432,6 @@ Future exploration:
 \end{adjustwidth}
 \end{figure}
 
-
-
-
-\pagebreak
-
-\bibliographystyle{plos2015}
-
-\bibliography{CLIMAR-2021_Mar_report.bib}
 
 
 
